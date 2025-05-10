@@ -1,0 +1,23 @@
+@startuml state
+
+state RESET 
+[*] -r-> RESET
+RESET -> WAIT : [count == 0]
+WAIT -d-> READ_EMPTY : [count != 0]
+READ_EMPTY -r-> READ 
+RESET -> READ_EMPTY : [count != 0]
+READ -> READ_LAST: [count == 0]
+READ_LAST -> WAIT 
+
+note right of READ_LAST
+  Read the value that is 
+  already out of the buffer
+end note
+
+note left of READ_EMPTY
+  Read the value that is out
+  of the fifo and throw it away
+  as it is not part of the fifo
+end note
+
+@enduml
