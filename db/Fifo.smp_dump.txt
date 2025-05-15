@@ -1,0 +1,15 @@
+
+State Machine - |flux_control|read_state
+Name read_state.READ_WAIT read_state.READ_FIFO read_state.READ_EMPTY_FIFO read_state.RESET 
+read_state.RESET 0 0 0 0 
+read_state.READ_EMPTY_FIFO 0 0 1 1 
+read_state.READ_FIFO 0 1 0 1 
+read_state.READ_WAIT 1 0 0 1 
+
+State Machine - |flux_control|write_state
+Name write_state.WRITE_FINISH write_state.WRITE_WAIT write_state.WRITE_FIFO write_state.LOAD_BRAM1 write_state.RESET 
+write_state.RESET 0 0 0 0 0 
+write_state.LOAD_BRAM1 0 0 0 1 1 
+write_state.WRITE_FIFO 0 0 1 0 1 
+write_state.WRITE_WAIT 0 1 0 0 1 
+write_state.WRITE_FINISH 1 0 0 0 1 

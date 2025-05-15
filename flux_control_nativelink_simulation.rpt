@@ -1,0 +1,119 @@
+Info: Start Nativelink Simulation process
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  Gate
+Family                :  cycloneii
+Quartus root          :  d:/files/altera/quartus/bin64/
+Quartus sim root      :  d:/files/altera/quartus/eda/sim_lib
+Simulation Tool       :  modelsim-altera
+Simulation Language   :  vhdl
+Version               :  93
+Simulation Mode       :  GUI
+Sim Output File       :  flux_control.vho
+Sim SDF file          :  flux_control__vhdl.sdo
+Sim dir               :  simulation\modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim-Altera software
+Sourced NativeLink script d:/files/altera/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File flux_control_run_msim_gate_vhdl.do already exists - backing up current file as flux_control_run_msim_gate_vhdl.do.bak5
+Probing transcript
+ModelSim-Altera Info: # Reading D:/Files/altera/modelsim_ase/tcl/vsim/pref.tcl 
+ModelSim-Altera Info: # do flux_control_run_msim_gate_vhdl.do 
+ModelSim-Altera Info: # if {[file exists gate_work]} {
+ModelSim-Altera Info: # 	vdel -lib gate_work -all
+ModelSim-Altera Info: # }
+ModelSim-Altera Info: # vlib gate_work
+ModelSim-Altera Info: # vmap work gate_work
+ModelSim-Altera Info: # Copying D:\Files\altera\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+ModelSim-Altera Info: # Modifying modelsim.ini
+ModelSim-Altera Warning: # ** Warning: Copied D:\Files\altera\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+ModelSim-Altera Info: #          Updated modelsim.ini.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vcom -93 -work work {flux_control.vho}
+ModelSim-Altera Info: # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+ModelSim-Altera Info: # -- Loading package STANDARD
+ModelSim-Altera Info: # -- Loading package TEXTIO
+ModelSim-Altera Info: # -- Loading package std_logic_1164
+ModelSim-Altera Info: # -- Loading package VITAL_Timing
+ModelSim-Altera Info: # -- Loading package VITAL_Primitives
+ModelSim-Altera Info: # -- Loading package cycloneii_atom_pack
+ModelSim-Altera Info: # -- Loading package cycloneii_components
+ModelSim-Altera Info: # -- Compiling entity flux_control
+ModelSim-Altera Info: # -- Compiling architecture structure of flux_control
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vcom -93 -work work {D:/Files/Proj5/flux_control_tb.vhd}
+ModelSim-Altera Info: # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+ModelSim-Altera Info: # -- Loading package STANDARD
+ModelSim-Altera Info: # -- Loading package TEXTIO
+ModelSim-Altera Info: # -- Loading package std_logic_1164
+ModelSim-Altera Info: # -- Compiling entity flux_control_tb
+ModelSim-Altera Info: # -- Compiling architecture flux_control_tb_arch of flux_control_tb
+ModelSim-Altera Info: # -- Loading package VITAL_Timing
+ModelSim-Altera Info: # -- Loading package VITAL_Primitives
+ModelSim-Altera Info: # -- Loading package cycloneii_atom_pack
+ModelSim-Altera Info: # -- Loading package cycloneii_components
+ModelSim-Altera Info: # -- Loading entity flux_control
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vsim -t 1ps +transport_int_delays +transport_path_delays -sdftyp /uut=flux_control_vhd.sdo -L cycloneii -L gate_work -L work -voptargs="+acc"  flux_control_tb
+ModelSim-Altera Info: # vsim +transport_int_delays +transport_path_delays -L cycloneii -L gate_work -L work -voptargs=\"+acc\" -sdftyp /uut=flux_control_vhd.sdo -t 1ps flux_control_tb 
+ModelSim-Altera Info: # Loading std.standard
+ModelSim-Altera Info: # Loading std.textio(body)
+ModelSim-Altera Info: # Loading ieee.std_logic_1164(body)
+ModelSim-Altera Info: # Loading ieee.vital_timing(body)
+ModelSim-Altera Info: # Loading ieee.vital_primitives(body)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_atom_pack(body)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_components
+ModelSim-Altera Info: # Loading work.flux_control_tb(flux_control_tb_arch)
+ModelSim-Altera Info: # SDF 10.1d Compiler 2012.11 Nov  2 2012
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # Loading work.flux_control(structure)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_and1(altvital)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_jtag(architecture_jtag)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_ram_block(block_arch)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_ram_register(reg_arch)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_ram_pulse_generator(pgen_arch)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_ena_reg(behave)
+ModelSim-Altera Info: # Loading ieee.std_logic_arith(body)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_io(structure)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_mux21(altvital)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_dffe(behave)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_asynch_io(behave)
+ModelSim-Altera Info: # Loading instances from flux_control_vhd.sdo
+ModelSim-Altera Info: # Loading timing data from flux_control_vhd.sdo
+ModelSim-Altera Warning: # ** Warning: Design size of 4 instances exceeds ModelSim ALTERA recommended capacity.
+ModelSim-Altera Info: # This may because you are loading cell libraries which are not recommended with
+ModelSim-Altera Info: # the ModelSim Altera version. Expect performance to be adversely affected.
+ModelSim-Altera Warning: # ** Warning: (vsim-8683) Uninitialized out port /flux_control_tb/uut/altera_internal_jtag/tdo has no driver.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # This port will contribute value (U) to the signal network.
+ModelSim-Altera Info: # 
+ModelSim-Altera Warning: # ** Warning: (vsim-8683) Uninitialized out port /flux_control_tb/uut/altera_internal_jtag/tmsutap has no driver.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # This port will contribute value (U) to the signal network.
+ModelSim-Altera Info: # 
+ModelSim-Altera Warning: # ** Warning: (vsim-8683) Uninitialized out port /flux_control_tb/uut/altera_internal_jtag/tckutap has no driver.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # This port will contribute value (U) to the signal network.
+ModelSim-Altera Info: # 
+ModelSim-Altera Warning: # ** Warning: (vsim-8683) Uninitialized out port /flux_control_tb/uut/altera_internal_jtag/tdiutap has no driver.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # This port will contribute value (U) to the signal network.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+ModelSim-Altera Info: #    Time: 0 ps  Iteration: 0  Instance: /flux_control_tb File: D:/Files/Proj5/flux_control_tb.vhd
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave *
+ModelSim-Altera Info: # view structure
+ModelSim-Altera Info: # .main_pane.structure.interior.cs.body.struct
+ModelSim-Altera Info: # view signals
+ModelSim-Altera Info: # .main_pane.objects.interior.cs.body.tree
+ModelSim-Altera Info: # run 2000000 ns
+ModelSim-Altera Info: # Break key hit 
+ModelSim-Altera Info: # Simulation stop requested.
+Info: NativeLink simulation flow was successful
