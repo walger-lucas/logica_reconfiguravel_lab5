@@ -1,0 +1,117 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_fifo_dual1024x8 is
+end entity;
+
+architecture sim of tb_fifo_dual1024x8 is
+
+  -- Componente a ser testado
+  component fifo_dual1024x8
+    port (
+      aclr     : in std_logic := '0';
+      data     : in std_logic_vector(7 downto 0);
+      rdclk    : in std_logic;
+      rdreq    : in std_logic;
+      wrclk    : in std_logic;
+      wrreq    : in std_logic;
+      q        : out std_logic_vector(7 downto 0);
+      rdempty  : out std_logic;
+      rdusedw  : out std_logic_vector(9 downto 0);
+      wrusedw  : out std_logic_vector(9 downto 0)
+    );
+  end component;
+
+  -- Sinais
+  signal aclr     : std_logic := '0';
+  signal data     : std_logic_vector(7 downto 0) := (others => '0');
+  signal rdclk    : std_logic := '0';
+  signal rdreq    : std_logic := '0';
+  signal wrclk    : std_logic := '0';
+  signal wrreq    : std_logic := '0';
+  signal q        : std_logic_vector(7 downto 0);
+  signal rdempty  : std_logic;
+  signal rdusedw  : std_logic_vector(9 downto 0);
+  signal wrusedw  : std_logic_vector(9 downto 0);
+
+  -- Períodos de clock
+  constant wrclk_period : time := 10 ns;
+  constant rdclk_period : time := 20 ns;
+
+begin
+
+  -- Instância da FIFO
+  uut: fifo_dual1024x8
+    port map (
+      aclr     => aclr,
+      data     => data,
+      rdclk    => rdclk,
+      rdreq    => rdreq,
+      wrclk    => wrclk,
+      wrreq    => wrreq,
+      q        => q,
+      rdempty  => rdempty,
+      rdusedw  => rdusedw,
+      wrusedw  => wrusedw
+    );
+
+  -- Clock de escrita
+  wrclk_process : process
+  begin
+    while true loop
+      wrclk <= '0';
+      wait for wrclk_period / 2;
+      wrclk <= '1';
+      wait for wrclk_period / 2;
+    end loop;
+  end process;
+
+  -- Clock de leitura
+  rdclk_process : process
+  begin
+    while true loop
+      rdclk <= '0';
+      wait for rdclk_period / 2;
+      rdclk <= '1';
+      wait for rdclk_period / 2;
+    end loop;
+  end process;
+
+  -- Estímulos
+  stim_proc : process
+  begin
+    -- Reset
+    aclr <= '1';
+    wait for wrclk_period * 2;
+    aclr <= '0';
+    wait for wrclk_period * 2;
+
+    -- Escrita de 3 bytes
+    for i in 0 to 2 loop
+      wait until rising_edge(wrclk);
+      data <= std_logic_vector(to_unsigned(i + 10, 8));
+      wrreq <= '1';
+    end loop;
+
+    wait until rising_edge(wrclk);
+    wrreq <= '0';
+
+    -- Espera alguns ciclos antes de ler
+    wait for 60 ns;
+
+    -- Leitura dos 3 dados
+    for i in 0 to 2 loop
+      wait until rising_edge(rdclk);
+      rdreq <= '1';
+      wait for rdclk_period;
+    end loop;
+
+    rdreq <= '0';
+
+    wait for 100 ns;
+
+    -- Fim da simulação
+  end process;
+
+end architecture;
